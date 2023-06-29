@@ -48,10 +48,7 @@ const Form = () => {
     setName('');
     setNumber('')
   }
-  const validation = {
-    pattern: "^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$",
-    title: "Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-  }
+
   const nameInputId = nanoid();
   const numberInputId = nanoid();
 
@@ -65,7 +62,10 @@ const Form = () => {
         onChange={handleChange}
         id={nameInputId}
         label="Name"
-        inputProps={validation}
+        inputProps={{
+          pattern: "^[a-zA-Zа-яА-Я]+(([' ][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$",
+          title: "Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+        }}
         value={name}
       />
       <TextField
